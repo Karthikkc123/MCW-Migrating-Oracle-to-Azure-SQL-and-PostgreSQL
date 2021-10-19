@@ -96,7 +96,23 @@ WWI has provided you with a copy of their application, including a database scri
 
 2. Unzip the contents to **C:\handsonlab**.
 
-3. Launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
+1. On the LabVM, navigate to the path **C:\LabFiles\oracle**. Right-click `setup.exe`, and select **Run as administrator**.
+
+   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/windows-file-menu-run-as-administrator.png "Run setup.exe as an administrator")
+   
+1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
+
+8.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
+
+    ![The above credentials are entered on the Oracle Database Information screen.](./media/oracle-18c-specify-passwords.png "Set the password")
+
+9.  Select **Install**. Once the installation completes, take note of the ports assigned.
+
+    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/oracle-18c-install-summary.png "Note the ports being assigned")
+
+10. Select **Finish** on the final dialog to complete the installation.
+
+3. Now launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
 
    ![Manual connection creation in Oracle SQL Developer.](./media/create-connection-sql-developer.png "SQL Developer add connection manually")
 
