@@ -240,7 +240,21 @@ In this exercise, you will create an assessment report that outlines the difficu
 
 In this task, we will create the new application user and create the NW database.
 
-1. Launch **pgAdmin** and enter your master password.
+1. You will need to navigate to <https://www.pgadmin.org/download/pgadmin-4-windows/> to obtain **pgAdmin 4**. At the time of writing, **v5.5** is the most recent version. Select the link to the installer, as shown below.
+
+    ![The screenshot shows the correct version of the pgAdmin utility to be installed.](./media/pgadmin-5.5-install.png "pgAdmin 4 v5.5")
+
+2. Download the **pgadmin4-5.5-x64.exe** file.
+
+3. Once the installer launches, accept all defaults. Complete the installation steps.
+
+4. To open pgAdmin, use the Windows Search utility. Type `pgAdmin`.
+
+   ![The screenshot shows pgAdmin in the Windows Search text box.](./media/2020-07-04-12-45-20.png "Find pgAdmin manually in Windows Search bar")
+
+5. PgAdmin will prompt you to set a password to govern access to database credentials. Enter `oracledemo123`. Confirm your choice. For now, our configuration of pgAdmin is complete.
+
+1. Now launch **pgAdmin** and enter your password **oracledemo123**.
 
 2. Under the **Quick Links** section of the Dashboard, there is the option to **Add New Server**. When selected, the **Create - Server** dialog box will open.
 
