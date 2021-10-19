@@ -234,7 +234,25 @@ In this exercise, you will migrate the Oracle database to Azure SQL DB using SSM
 
 ### Task 1: Migrate the Oracle database to Azure SQL Database using SSMA
 
-1. On your LabVM, launch **Microsoft SQL Server Migration Assistant for Oracle** from the Start Menu.
+1. On the LabVM, move to the path **C:\LabFiles** and double-click on **ssma.msi**.
+
+3. Once the installer finishes downloading, launch it. The launch page for SSMA 8.x will open. Select **Next**.
+
+    ![View the Setup start screen.](./media/ssma-installer-welcome.png "SSMA installer start screen")
+
+1. Accept the license agreement. Select **Next**.
+
+1. On the **Choose Setup Type** window, select **Typical**.
+
+    ![Select the Typical install type in the SSMA MSI installer.](./media/ssma-install-setup-type.png "Typical install type")
+
+1. On the **Ready to Install** window, accept the defaults. Then, select **Install**.
+
+    ![Accept defaults for telemetry usage and version updates.](./media/ssma-install-ready-to-install.png "Accept defaults")
+
+1. Wait for the installation to complete.
+
+3. After completing the installation, launch **Microsoft SQL Server Migration Assistant for Oracle** on the LabVM from the Start Menu.
 
 2. Select **File**, then **New Project...**
 
