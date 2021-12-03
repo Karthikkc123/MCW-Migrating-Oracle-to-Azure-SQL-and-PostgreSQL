@@ -98,6 +98,8 @@ WWI has provided you with a copy of their application, including a database scri
 
 1. On the LabVM, navigate to the path **C:\LabFiles\oracle**. Right-click `setup.exe`, and select **Run as administrator**.
 
+   Note: If you see the setup files is not available, please download from this URL: https://www.oracle.com/database/technologies/xe-downloads.html
+
    ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/windows-file-menu-run-as-administrator.png "Run setup.exe as an administrator")
    
 1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
