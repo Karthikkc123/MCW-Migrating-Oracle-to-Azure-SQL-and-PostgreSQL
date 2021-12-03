@@ -96,7 +96,23 @@ WWI has provided you with a copy of their application, including a database scri
 
 2. Unzip the contents to **C:\handsonlab**.
 
-3. Launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
+1. On the LabVM, navigate to the path **C:\LabFiles\oracle**. Right-click `setup.exe`, and select **Run as administrator**.
+
+   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/windows-file-menu-run-as-administrator.png "Run setup.exe as an administrator")
+   
+1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
+
+8.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
+
+    ![The above credentials are entered on the Oracle Database Information screen.](./media/oracle-18c-specify-passwords.png "Set the password")
+
+9.  Select **Install**. Once the installation completes, take note of the ports assigned.
+
+    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/oracle-18c-install-summary.png "Note the ports being assigned")
+
+10. Select **Finish** on the final dialog to complete the installation.
+
+3. Now launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
 
    ![Manual connection creation in Oracle SQL Developer.](./media/create-connection-sql-developer.png "SQL Developer add connection manually")
 
@@ -224,7 +240,21 @@ In this exercise, you will create an assessment report that outlines the difficu
 
 In this task, we will create the new application user and create the NW database.
 
-1. Launch **pgAdmin** and enter your master password.
+1. You will need to navigate to <https://www.pgadmin.org/download/pgadmin-4-windows/> to obtain **pgAdmin 4**. At the time of writing, **v5.5** is the most recent version. Select the link to the installer, as shown below.
+
+    ![The screenshot shows the correct version of the pgAdmin utility to be installed.](./media/pgadmin-5.5-install.png "pgAdmin 4 v5.5")
+
+2. Download the **pgadmin4-5.5-x64.exe** file.
+
+3. Once the installer launches, accept all defaults. Complete the installation steps.
+
+4. To open pgAdmin, use the Windows Search utility. Type `pgAdmin`.
+
+   ![The screenshot shows pgAdmin in the Windows Search text box.](./media/2020-07-04-12-45-20.png "Find pgAdmin manually in Windows Search bar")
+
+5. PgAdmin will prompt you to set a password to govern access to database credentials. Enter `oracledemo123`. Confirm your choice. For now, our configuration of pgAdmin is complete.
+
+1. Now launch **pgAdmin** and enter your password **oracledemo123**.
 
 2. Under the **Quick Links** section of the Dashboard, there is the option to **Add New Server**. When selected, the **Create - Server** dialog box will open.
 
