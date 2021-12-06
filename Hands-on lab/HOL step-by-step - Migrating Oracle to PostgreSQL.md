@@ -131,6 +131,22 @@ In this exercise, you will load a sample database supporting the application. En
 
 1. On the Finish screen, select **Close**.
 
+1. Now to install SSMS, Navigate to ***"C:\LabFiles\"***  And open ssms.msi. Then Select **Next**.
+
+    ![View the Setup start screen.](./media/ssma-installer-welcome.png "SSMA installer start screen")
+
+1. Accept the license agreement. Select **Next**.
+
+1. On the **Choose Setup Type** window, select **Typical**.
+
+    ![Select the Typical install type in the SSMA MSI installer.](./media/ssma-install-setup-type.png "Typical install type")
+
+1. On the **Ready to Install** window, accept the defaults. Then, select **Install**.
+
+    ![Accept defaults for telemetry usage and version updates.](./media/ssma-install-ready-to-install.png "Accept defaults")
+
+1. Wait for the installation to complete.
+
 ### Task 2: Create the Northwind database in Oracle 18c XE
 
 WWI has provided you with a copy of their application, including a database script to create their Oracle database. They have asked that you use this as a starting point for migrating their database and application to Azure SQL DB. In this task, you will create a connection to the Oracle database on your Lab VM.
