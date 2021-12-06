@@ -107,7 +107,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1. Select **Finish** on the final dialog to complete the installation.
 
-1. Navigate to the path "C:\LabFiles\oracledataaccesscomponent", and right-click `setup.exe`, then select **Run as administrator** to begin the installation.
+1. Now to install oracle data access component, Navigate to the path "C:\LabFiles\oracledataaccesscomponent", and right-click `setup.exe`, then select **Run as administrator** to begin the installation.
 
 1. Select **Next** to accept the default language, English, on the first screen.
 
