@@ -88,34 +88,58 @@ Duration: 45 minutes
 
 In this exercise, you will load a sample database supporting the application. Ensure that you installed Oracle XE, Oracle Data Access Components, and Oracle SQL Developer, as detailed in the Before the Hands-on Lab documents.
 
-### Task 1: Create the Northwind database in Oracle 18c XE
 
-WWI has provided you with a copy of their application, including a database script to create their Oracle database. They have asked that you use this as a starting point for migrating their database and application to Azure SQL DB. In this task, you will create a connection to the Oracle database on your Lab VM.
+### Task 1: Install the pre-req application.
 
-1. In a web browser on LabVM, download a copy of the [Migrating Oracle to  Azure SQL and PostgreSQL upgrade and migration MCW repo](https://github.com/microsoft/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/archive/refs/heads/master.zip).
-
-2. Unzip the contents to **C:\handsonlab**.
-
-1. On the LabVM, navigate to the path **C:\LabFiles\oracle**. Right-click `setup.exe`, and select **Run as administrator**.
-
-   Note: If you see the setup files is not available, please download from this URL: https://www.oracle.com/database/technologies/xe-downloads.html
+1. On the LabVM, navigate to the path **C:\Users\demouser\Downloads\OracleXE213_Win64**. Right-click `setup.exe`, and select **Run as administrator**.
 
    ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/windows-file-menu-run-as-administrator.png "Run setup.exe as an administrator")
    
 1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
 
-8.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
+1.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
 
     ![The above credentials are entered on the Oracle Database Information screen.](./media/oracle-18c-specify-passwords.png "Set the password")
 
-9.  Select **Install**. Once the installation completes, take note of the ports assigned.
+1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
     ![Several of the ports being assigned are highlighted on the Summary screen.](./media/oracle-18c-install-summary.png "Note the ports being assigned")
 
-10. Select **Finish** on the final dialog to complete the installation.
+1. Select **Finish** on the final dialog to complete the installation.
+
+1. Navigate to the path "C:\LabFiles\oracledataaccesscomponent", and right-click `setup.exe`, then select **Run as administrator** to begin the installation.
+
+1. Select **Next** to accept the default language, English, on the first screen.
+
+1. On the Specify Oracle Home User screen, accept the default, Use Windows Built-in Account, and select **Next**.
+
+1. Accept the default installation locations, and select **Next**.
+
+1. On the **Available Product Components**, uncheck **Oracle Data Access Components Documentation for Visual Studio**, and select **Next**.
+
+   ![Oracle Data Access Components Documentation for Visual Studio is cleared on the Available Product Components screen, and Next is selected at the bottom.](./media/oracle-odac-install-product-components.png "Clear Oracle Data Access Components Documentation for Visual Studio")
+
+1. On the ODP.NET screen, check the box for **Configure ODP.NET and/or Oracle Providers for ASP.NET at machine-wide level**, and select **Next**.
+
+    ![Configure ODP.NET and/or Oracle Providers for ASP.NET at machine-wide level is selected on the ODP.NET screen, and Next is selected at the bottom.](./media/oracle-odac-install-odp-net.png "Select Configure ODP.NET and/or Oracle Providers for ASP.NET at machine-wide level")
+
+1. If the Next button is disabled on the Perform Prerequisite Checks screen, check the **Ignore All** box, and then select **Next**. This screen will be skipped by the installer if no missing prerequisites are found.
+
+    ![The Ignore All box is cleared on highlighted on the Perform Prerequisite Checks screen, and Next is selected at the bottom.](./media/oracle-odac-install-prerequisite-checks.png "Perform Prerequisite Checks")
+
+1. On the Summary screen, select **Install**.
+
+1. On the Finish screen, select **Close**.
+
+### Task 1: Create the Northwind database in Oracle 18c XE
+
+WWI has provided you with a copy of their application, including a database script to create their Oracle database. They have asked that you use this as a starting point for migrating their database and application to Azure SQL DB. In this task, you will create a connection to the Oracle database on your Lab VM.
+
+
 
 3. Now launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
-
+   >**Note**: If you are prompted to import preferences from a previous installation, select **No**.
+   
    ![Manual connection creation in Oracle SQL Developer.](./media/create-connection-sql-developer.png "SQL Developer add connection manually")
 
 4. Provide the following parameters to the **New / Select Database Connection** window. Select **Connect** when you are complete.
@@ -242,19 +266,11 @@ In this exercise, you will create an assessment report that outlines the difficu
 
 In this task, we will create the new application user and create the NW database.
 
-1. You will need to navigate to <https://www.pgadmin.org/download/pgadmin-4-windows/> to obtain **pgAdmin 4**. At the time of writing, **v5.5** is the most recent version. Select the link to the installer, as shown below.
-
-    ![The screenshot shows the correct version of the pgAdmin utility to be installed.](./media/pgadmin-5.5-install.png "pgAdmin 4 v5.5")
-
-2. Download the **pgadmin4-5.5-x64.exe** file.
-
-3. Once the installer launches, accept all defaults. Complete the installation steps.
-
-4. To open pgAdmin, use the Windows Search utility. Type `pgAdmin`.
+1. To open pgAdmin, use the Windows Search utility. Type `pgAdmin`.
 
    ![The screenshot shows pgAdmin in the Windows Search text box.](./media/2020-07-04-12-45-20.png "Find pgAdmin manually in Windows Search bar")
 
-5. PgAdmin will prompt you to set a password to govern access to database credentials. Enter `oracledemo123`. Confirm your choice. For now, our configuration of pgAdmin is complete.
+2. PgAdmin will prompt you to set a password to govern access to database credentials. Enter `oracledemo123`. Confirm your choice. For now, our configuration of pgAdmin is complete.
 
 1. Now launch **pgAdmin** and enter your password **oracledemo123**.
 
