@@ -277,7 +277,7 @@ Our configuration in pgAdmin is now complete.
     cd C:\ora2pg
     rename ora2pg_conf.dist ora2pg.conf.dist
     ```
-    > Note: If the ora2pg folder is not exist in the C dirctory then please run these below commands and the start from Step 1.
+    > Note: If the ora2pg folder is not exist in the C:\ directory then please run these below commands and then start from Step 1.
      ```
      
      cd 'C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files'
