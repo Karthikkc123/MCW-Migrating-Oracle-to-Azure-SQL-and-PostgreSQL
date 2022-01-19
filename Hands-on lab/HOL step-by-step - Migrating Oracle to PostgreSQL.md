@@ -103,7 +103,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
-    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/oracle-18c-install-summary.png "Note the ports being assigned")
+    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/postgresql.png "Note the ports being assigned")
 
 1. Select **Finish** on the final dialog to complete the installation.
 
