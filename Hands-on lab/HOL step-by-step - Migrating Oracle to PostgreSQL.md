@@ -582,15 +582,15 @@ Views are not referenced by the sample application, but we are including this ta
 
     ![Screenshot showing the new view for Sales Total Amounts.](./media/sales-totals-amount-view-new.png "Sales Totals amounts new view")
 
-4. Open the **QUARTERLY_ORDERS_NW-views.sql** and replace the **to_date()** function with **DATE()** function. Remember, the DATE() function does NOT have the same parameters.
+4. Open the **QUARTERLY_ORDERS_NW-views.sql** and replace the **to_date(Orders.OrderDate, 'MM/DD/YYYY')** function with **DATE(Orders.OrderDate)** function. Remember, the DATE() function does NOT have the same parameters.
 
     >**Note**: The other two applications of the `to_date()` function in that file are acceptable, as seen below.
 
     ![Testing to_date() function from pgAdmin.](./media/to-date-demo.png "to_date() sample")
 
-5. Open the **PRODUCT_SALES_FOR_1997_NW-views.sql** and replace the **to_date()** function with **DATE()** function.
+5. Open the **PRODUCT_SALES_FOR_1997_NW-views.sql** and replace the **to_date(Orders.ShippedDate, 'MM/DD/YYYY')** function with **DATE(Orders.ShippedDate)** function.
 
-6. Open the **SALES_BY_CATEGORY_NW-views.sql** and replace the **to_date()** function with **DATE()** function.
+6. Open the **SALES_BY_CATEGORY_NW-views.sql** and replace the **to_date(Orders.OrderDate, 'MM/DD/YYYY')** function with **DATE(Orders.OrderDate)** function.
 
 7. Now that all modifications are complete, run the NW-views.sql file in psql:
 
