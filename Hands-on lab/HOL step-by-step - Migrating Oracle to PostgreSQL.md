@@ -162,7 +162,7 @@ WWI has provided you with a copy of their application, including a database scri
 
    - **Name**: Northwind
    - **Username**: system
-   - **Password**: Password set in the ARM template
+   - **Password**: Enter the password set in the ARM template **Password.1!!**
    - Keep the **Details** at their defaults
 
    ![Northwind connection in SQL Developer.](./media/new-oracle-connection-sqldeveloper.png "Northwind connection")
