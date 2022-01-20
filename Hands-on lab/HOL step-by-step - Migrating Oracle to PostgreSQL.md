@@ -345,6 +345,12 @@ Our configuration in pgAdmin is now complete.
     cd C:\ora2pg
     rename ora2pg_conf.dist ora2pg.conf.dist
     ```
+    
+     > Note: If the ora2pg folder is not exist in the C:\ directory then please run these below commands and then start from Step 1.
+     ```
+     
+     cd 'C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files'
+     .\installora2pg.ps1```
 
 2. To create a project, we will use the ora2pg command with the --init_project flag. In the example below, our migration project is titled nw_migration.
 
