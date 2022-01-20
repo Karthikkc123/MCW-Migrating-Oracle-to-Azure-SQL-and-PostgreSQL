@@ -93,7 +93,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1. On the LabVM, navigate to the path **C:\LabFiles\OracleXE213_Win64**. Right-click `setup.exe`, and select **Run as administrator**.
 
-   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/windows-file-menu-run-as-administrator.png "Run setup.exe as an administrator")
+   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/postgresql1.png "Run setup.exe as an administrator")
    
 1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
 
@@ -103,7 +103,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
-    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/oracle-18c-install-summary.png "Note the ports being assigned")
+    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/postgresql.png "Note the ports being assigned")
 
 1. Select **Finish** on the final dialog to complete the installation.
 
@@ -153,33 +153,37 @@ WWI has provided you with a copy of their application, including a database scri
 
 
 
-3. Now launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
+1. Now launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
    >**Note**: If you are prompted to import preferences from a previous installation, select **No**.
    
    ![Manual connection creation in Oracle SQL Developer.](./media/create-connection-sql-developer.png "SQL Developer add connection manually")
 
-4. Provide the following parameters to the **New / Select Database Connection** window. Select **Connect** when you are complete.
+2. Provide the following parameters to the **New / Select Database Connection** window. Select **Connect** when you are complete.
 
    - **Name**: Northwind
    - **Username**: system
-   - **Password**: Password set in the ARM template
+   - **Password**: Enter the password set in the ARM template **Password.1!!**
    - Keep the **Details** at their defaults
 
    ![Northwind connection in SQL Developer.](./media/new-oracle-connection-sqldeveloper.png "Northwind connection")
 
-5. Once the connection completes, select the **Open File** icon (1). Navigate to `C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files\starter-project\Oracle Scripts\1.northwind.oracle.schema`. Then, execute the DDL statements (2).
+3. Once the connection completes, select the **Open File** icon (1). Navigate to `C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files\starter-project\Oracle Scripts\1.northwind.oracle.schema`. Then, execute the DDL statements (2).
 
    ![Execute schema creation script in SQL Developer.](./media/execute-first-northwind-sql-script.png "Schema creation script")
+   
+   >**Note :** If you are prompted with **Select Connection** tab, leave the default option for Connection and Click on **OK**.
 
-6. Right-click the **Northwind** connection and select **Properties**. Then, edit the **Username** to `NW`, and the **Password** to `oracledemo123`. Select **Connect**. Note that you may be asked to enter the password again.
+4. Right-click the **Northwind** connection and select **Properties**. Then, edit the **Username** to `NW`, and the **Password** to `oracledemo123`. Select **Connect**. Note that you may be asked to enter the password again.
 
-7. In the Open File dialog, navigate to `C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files\starter-project\Oracle Scripts`, select the file `2.northwind.oracle.tables.views.sql`, and then select **Open**.
+5. In the Open File dialog, navigate to `C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files\starter-project\Oracle Scripts`, select the file `2.northwind.oracle.tables.views.sql`, and then select **Open**.
 
-8. As you did previously, run the script. Note that SQL Developer provides an output pane to view any errors.
+6. As you did previously, run the script. Note that SQL Developer provides an output pane to view any errors.
 
    ![Script output of the second Northwind database script.](./media/northwind-script-2-output.png "SQL Developer output pane")
+   
+   >**Note :** If you are prompted with **Select Connection** tab, leave the default option for Connection and Click on **OK**
 
-9. Repeat steps 7 - 8, replacing the file name in step 26 with each of the following:
+7. Repeat steps 7 - 8, replacing the file name in step 26 with each of the following:
 
     - `3.northwind.oracle.packages.sql`
 
@@ -197,7 +201,7 @@ WWI has provided you with a copy of their application, including a database scri
 
       > **Important**: This query can take several minutes to run, so make sure you wait until you see the **Commit complete** message in the output window before executing the next file.
 
-10. After you finish running these scripts, validate that the database objects were created. The image below demonstrates the Tables and the Views created by the script.
+8. After you finish running these scripts, validate that the database objects were created. The image below demonstrates the Tables and the Views created by the script.
 
     ![Presenting the tables and views generated by the Oracle scripts.](./media/views-table-validation.png "Oracle tables and views")
 
@@ -578,15 +582,15 @@ Views are not referenced by the sample application, but we are including this ta
 
     ![Screenshot showing the new view for Sales Total Amounts.](./media/sales-totals-amount-view-new.png "Sales Totals amounts new view")
 
-4. Open the **QUARTERLY_ORDERS_NW-views.sql** and replace the **to_date()** function with **DATE()** function. Remember, the DATE() function does NOT have the same parameters.
+4. Open the **QUARTERLY_ORDERS_NW-views.sql** and replace the **to_date(Orders.OrderDate, 'MM/DD/YYYY')** function with **DATE(Orders.OrderDate)** function. Remember, the DATE() function does NOT have the same parameters.
 
     >**Note**: The other two applications of the `to_date()` function in that file are acceptable, as seen below.
 
     ![Testing to_date() function from pgAdmin.](./media/to-date-demo.png "to_date() sample")
 
-5. Open the **PRODUCT_SALES_FOR_1997_NW-views.sql** and replace the **to_date()** function with **DATE()** function.
+5. Open the **PRODUCT_SALES_FOR_1997_NW-views.sql** and replace the **to_date(Orders.ShippedDate, 'MM/DD/YYYY')** function with **DATE(Orders.ShippedDate)** function.
 
-6. Open the **SALES_BY_CATEGORY_NW-views.sql** and replace the **to_date()** function with **DATE()** function.
+6. Open the **SALES_BY_CATEGORY_NW-views.sql** and replace the **to_date(Orders.OrderDate, 'MM/DD/YYYY')** function with **DATE(Orders.OrderDate)** function.
 
 7. Now that all modifications are complete, run the NW-views.sql file in psql:
 
