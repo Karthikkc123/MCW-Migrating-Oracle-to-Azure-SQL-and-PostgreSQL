@@ -347,7 +347,8 @@ Our configuration in pgAdmin is now complete.
     ```
     
     > **Note:** If the ora2pg folder is not exist in the C:\ directory then please run the below commands in **Windows Powershell** and repeat the Step 1.
-     ```
+    
+    ```
      
      cd 'C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files'
      .\installora2pg.ps1```
