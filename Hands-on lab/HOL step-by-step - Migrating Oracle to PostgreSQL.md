@@ -99,7 +99,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
 
-    ![The above credentials are entered on the Oracle Database Information screen.](./media/oracle-18c-specify-passwords.png "Set the password")
+    ![The above credentials are entered on the Oracle Database Information screen.](./media/21c.png "Set the password")
 
 1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
@@ -346,7 +346,7 @@ Our configuration in pgAdmin is now complete.
     rename ora2pg_conf.dist ora2pg.conf.dist
     ```
     
-     > Note: If the ora2pg folder is not exist in the C:\ directory then please run these below commands and then start from Step 1.
+    > **Note:** If the ora2pg folder is not exist in the C:\ directory then please run the below commands in **Windows Powershell** and repeat the Step 1.
      ```
      
      cd 'C:\handsonlab\MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL-master\Hands-on lab\lab-files'
