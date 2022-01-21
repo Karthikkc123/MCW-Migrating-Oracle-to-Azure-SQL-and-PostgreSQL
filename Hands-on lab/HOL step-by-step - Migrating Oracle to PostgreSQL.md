@@ -99,7 +99,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
 
-    ![The above credentials are entered on the Oracle Database Information screen.](./media/oracle-18c-specify-passwords.png "Set the password")
+    ![The above credentials are entered on the Oracle Database Information screen.](./media/21c.png "Set the password")
 
 1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
