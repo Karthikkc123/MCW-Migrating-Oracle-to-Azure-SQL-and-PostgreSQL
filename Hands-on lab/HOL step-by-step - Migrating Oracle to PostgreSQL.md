@@ -464,11 +464,7 @@ Exercise 3 covered planning and assessment steps.  To start the database migrati
 
     >**Note**: Open the **schema\tables\NW-psql.sql** file. Notice that all table names are lowercase--using uppercase names for tables and/or columns will require quotations whenever referenced. Furthermore, ora2pg converts data types fairly well. If you have strong knowledge of the stored data, you can modify types to improve performance. You can export individual table schemas in separate files to facilitate the review.
 
-3. Execute the PostgreSQL commands against the PostgreSQL database. You can use any PostgreSQL database client. One way to execute a SQL file against a PostgreSQL database is through the **psql** utility located at the `C:\Program Files\pgAdmin 4\v5\runtime` directory. Just as we did in task 4, append this location to the system PATH variable. Note that you will need to restart your command prompt windows for the change to take effect.
-
-    ![Screenshot showing the process to add psql to the PATH variable.](./media/adding-psql-loc-to-path-x64.png "Adding psql to PATH variable")
-
-4. Reopen the command prompt in the `C:\ora2pg\nw_migration` directory.
+3. In the command prompt in the `C:\ora2pg\nw_migration` directory.
 
     - Enter the following command to run the **NW-psql.sql** file to create tables in the **NW** database.
     - [Server Name] - Enter your Azure PostgreSQL database's DNS name as the value passed to the -h flag. You can find this Server name in the Azure PostgreSQL overview.
@@ -485,9 +481,7 @@ Exercise 3 covered planning and assessment steps.  To start the database migrati
 
     ![The image shows the create table statements being executed.](media/psql-create-table-results.png "PSQL Create Table Statements")
 
-    >**Note**: If you receive an error like "could not find a 'psql' to execute", use the entire path to the executable in the command (`"C:\Program Files\pgAdmin 4\v5\runtime\psql"`)
-
-    - Navigate to pgAdmin. Refresh the database objects.  Verify the tables exist in pgAdmin.
+   - Navigate to pgAdmin. Refresh the database objects.  Verify the tables exist in pgAdmin.
   
     ![The image shows the newly created tables in the pgAdmin tool.](media/view-tables-in-pgadmin.png "View tables in pgAdmin")
 
@@ -708,19 +702,30 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
 3. Save the `appsettings.json` file.
 
     >**Note**: In production scenarios, it is not recommended to store connection strings in files that are checked into version control. Consider using Azure Key Vault references in production and [user secrets](https://docs.microsoft.com/aspnet/core/security/app-secrets) in development.
+    
+4. In visual studio select **Tools** (1), **NuGet Package Manager** (2), and **Manage NuGet Packages for Solution...** (3).
 
-4. Open the Package Manager console by selecting **Tools** (1), **NuGet Package Manager** (2), and **Package Manager Console** (3).
+    ![Open the Manage NuGet Packages for Solution window.](./media/manage-solution-nuget-packages.png "Opening the solution NuGet Package Manager interface")
+
+5. Now, navigate to the **Updates** tab (1). Click the **Select all packages** button (2). Lastly, select **Update** (3).
+
+    ![Select and update all NuGet packages in the Solution.](./media/update-nuget-packages-for-solution.png "Updating Solution NuGet packages")
+
+    Once this step completes, restart Visual Studio 2019.
+
+6. Open the Package Manager console by selecting **Tools** (1), **NuGet Package Manager** (2), and **Package Manager Console** (3).
 
     ![Opening the Package Manager console in Visual Studio.](./media/open-pmc.png "Opening the Package Manager Console")
+    
 
-5. Enter the following command in the Package Manager console. It will install the open-source Npgsql Entity Framework Core provider.
+7. Enter the following command in the Package Manager console. It will install the open-source Npgsql Entity Framework Core provider.
 
     ```powershell
     Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
     ```
 
 
-6. Enter the following command in the Package Manager console to produce the models. The `-Force` flag eliminates the need to manually clear the `Data` directory.
+8. Enter the following command in the Package Manager console to produce the models. The `-Force` flag eliminates the need to manually clear the `Data` directory.
 
     ```powershell
     Scaffold-DbContext Name=ConnectionStrings:PostgreSqlConnectionString Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Data -Context DataContext -Schemas public -Force
@@ -730,13 +735,13 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
 
     ![The image shows the entity objects created by the executed command.](media/view-reverse-engineer-table-results.png "Reverse engineered table objects")
 
-7. Attempt to build the solution to identify errors.
+9. Attempt to build the solution to identify errors.
 
     ![The image shows the Visual Studio menu. Build Solution menu item highlighted.](media/visual-studio-build-solution.png "Build Solution")
 
     ![Errors in the solution.](./media/solution-errors.png "Solution errors")
 
-8. Expand the **Views** folder. Delete the following folders, each of which contains five views:
+10. Expand the **Views** folder. Delete the following folders, each of which contains five views:
 
    - **Customers**
    - **Employees**
@@ -744,9 +749,9 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
    - **Shippers**
    - **Suppliers**
 
-9. Expand the **Controllers** folder. Delete all controllers, except **HomeController.cs**.
+11. Expand the **Controllers** folder. Delete all controllers, except **HomeController.cs**.
 
-10. Open **DataContext.cs**. Add the following line to the top of the file, below the other `using` directives.
+12. Open **DataContext.cs**. Add the following line to the top of the file, below the other `using` directives.
 
     ```csharp
     using NorthwindMVC.Models;
@@ -780,27 +785,18 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
     }
     ```
 
-11. Build the solution. Ensure that no errors appear. We added `SalesByYearDbSet` to **DataContext** because **HomeController.cs** references it. We deleted the controllers and their associated views because we will scaffold them again from the models.
+13. Build the solution. Ensure that no errors appear. We added `SalesByYearDbSet` to **DataContext** because **HomeController.cs** references it. We deleted the controllers and their associated views because we will scaffold them again from the models.
 
-12. Right-click the **Controllers** folder and select **Add** (1). Select **New Scaffolded Item...** (2).
+14. Right-click the **Controllers** folder and select **Add** (1). Select **New Scaffolded Item...** (2).
 
    ![Adding a new scaffolded item.](./media/add-scaffolded-item.png "New scaffolded item")
 
-13. Select **MVC Controller with views, using Entity Framework**. Then, select **Add**.
+15. Select **MVC Controller with views, using Entity Framework**. Then, select **Add**.
 
     ![Add MVC Controller with Views, using Entity Framework.](./media/add-mvc-with-ef.png "MVC Controller with Views, using Entity Framework")
 
-    If you receive an error that package restore fails, you need to update the NuGet packages. To do this, first select **Tools** (1), **NuGet Package Manager** (2), and **Manage NuGet Packages for Solution...** (3).
 
-    ![Open the Manage NuGet Packages for Solution window.](./media/manage-solution-nuget-packages.png "Opening the solution NuGet Package Manager interface")
-
-    Now, navigate to the **Updates** tab (1). Click the **Select all packages** button (2). Lastly, select **Update** (3).
-
-    ![Select and update all NuGet packages in the Solution.](./media/update-nuget-packages-for-solution.png "Updating Solution NuGet packages")
-
-    Once this step completes, restart Visual Studio 2019.
-
-14. In the **ADD MVC Controller with views, using Entity Framework** dialog box, provide the following details. Then, select **Add**. Visual Studio will build the project.
+16. In the **ADD MVC Controller with views, using Entity Framework** dialog box, provide the following details. Then, select **Add**. Visual Studio will build the project.
 
     - **Model class**: Select `Customer`.
     - **Data context class**: Select `DataContext`.
@@ -809,7 +805,7 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
 
    ![Scaffolding controllers and views from model classes.](./media/customer-scaffold-views.png "Scaffolding controllers and views")
 
-15. Repeat steps 12-14, according to the following details:
+17. Repeat steps 12-14, according to the following details:
 
     - **EmployeesController.cs**
       - Based on the **Employee** model class
@@ -820,7 +816,7 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
     - **SuppliersController.cs**
       - Based on the **Supplier** model class
 
-16. Navigate to **Startup.cs**. Ensure that PostgreSQL is configured as the correct provider and the appropriate connection string is referenced in the **ConfigureServices** method. 
+18. Navigate to **Startup.cs**. Ensure that PostgreSQL is configured as the correct provider and the appropriate connection string is referenced in the **ConfigureServices** method. 
 
     ```csharp
     // This method gets called by the runtime. Use this method to add services to the container.
