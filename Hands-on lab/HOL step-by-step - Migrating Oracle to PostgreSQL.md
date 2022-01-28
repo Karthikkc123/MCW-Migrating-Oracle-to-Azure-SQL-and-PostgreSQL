@@ -92,10 +92,6 @@ In this exercise, you will load a sample database supporting the application. En
 
 WWI has provided you with a copy of their application, including a database script to create their Oracle database. They have asked that you use this as a starting point for migrating their database and application to Azure SQL DB. In this task, you will create a connection to the Oracle database on your Lab VM.
 
-1. In a web browser on LabVM, download a copy of the [Migrating Oracle to  Azure SQL and PostgreSQL upgrade and migration MCW repo](https://github.com/microsoft/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/archive/refs/heads/master.zip).
-
-2. Unzip the contents to **C:\handsonlab**.
-
 3. Launch SQL Developer from the `C:\Tools\sqldeveloper` path from earlier. In the **Database Connection** window, select **Create a Connection Manually**.
 
    ![Manual connection creation in Oracle SQL Developer.](./media/create-connection-sql-developer.png "SQL Developer add connection manually")
@@ -121,7 +117,7 @@ WWI has provided you with a copy of their application, including a database scri
 
    ![Script output of the second Northwind database script.](./media/northwind-script-2-output.png "SQL Developer output pane")
 
-9. Repeat steps 7 - 8, replacing the file name in step 26 with each of the following:
+9. Repeat steps 7 - 8, replacing the file name in step with each of the following:
 
     - `3.northwind.oracle.packages.sql`
 
@@ -236,7 +232,7 @@ In this task, we will create the new application user and create the NW database
 
     - You can pull your instance's hostname from the Azure portal (it is available in the resource's overview).
     - For **Username**, enter the admin username available on the instance's overview.
-    - For **Password**, enter the admin user password you provided during deployment.
+    - For **Password**, enter **Password.1!!**
     - Select **Save** when you are ready to connect.
 
     ![Specifying the database connection.](./media/specifying-db-connection.png "DB connection specifications")
@@ -265,7 +261,6 @@ In this task, we will create the new application user and create the NW database
 
     ![Setting the NW role as a member of the azure_pg_admin role.](./media/set-role-membership-5.4.png "azure_pg_admin role membership")
 
-10. If you did not deploy the lab ARM template, you need to create a new database. Simply right-click the **Databases** dropdown and select **Create > Database...**. Provide `NW` as the database name and the set the owner to the admin user configured in the Azure provisioning step.
 
 Our configuration in pgAdmin is now complete.
 
@@ -308,7 +303,9 @@ Our configuration in pgAdmin is now complete.
 4. Navigate to the project directory.
 
     - Locate **config\ora2pg.conf**.
-    - Select the file to open it. If you are asked to select an application to open the file, select **Notepad**.
+    - Select the file to open it. If you are asked to select an application to open the file, select **Notepad**. We will need to collect multiple parameters of the local Oracle database to enter into the configuration file. These parameters are available by entering **lsnrctl status** into the command prompt.
+
+    ![Screenshot showing database parameters.](./media/database-parameter.png "Database parameters")
 
 5. In the **config\ora2pg.conf** file, replace the old values in the file with the correct information.
 
@@ -394,11 +391,7 @@ Exercise 3 covered planning and assessment steps.  To start the database migrati
 
     >**Note**: Open the **schema\tables\NW-psql.sql** file. Notice that all table names are lowercase--using uppercase names for tables and/or columns will require quotations whenever referenced. Furthermore, ora2pg converts data types fairly well. If you have strong knowledge of the stored data, you can modify types to improve performance. You can export individual table schemas in separate files to facilitate the review.
 
-3. Execute the PostgreSQL commands against the PostgreSQL database. You can use any PostgreSQL database client. One way to execute a SQL file against a PostgreSQL database is through the **psql** utility located at the `C:\Program Files\pgAdmin 4\v5\runtime` directory. Just as we did in task 4, append this location to the system PATH variable. Note that you will need to restart your command prompt windows for the change to take effect.
-
-    ![Screenshot showing the process to add psql to the PATH variable.](./media/adding-psql-loc-to-path-x64.png "Adding psql to PATH variable")
-
-4. Reopen the command prompt in the `C:\ora2pg\nw_migration` directory.
+4. In the command prompt in the `C:\ora2pg\nw_migration` directory.
 
     - Enter the following command to run the **NW-psql.sql** file to create tables in the **NW** database.
       - [Server Name] - Enter your Azure PostgreSQL database's DNS name as the value passed to the -h flag. You can find this Server name in the Azure PostgreSQL overview.
@@ -415,7 +408,7 @@ Exercise 3 covered planning and assessment steps.  To start the database migrati
 
     ![The image shows the create table statements being executed.](media/psql-create-table-results.png "PSQL Create Table Statements")
 
-    >**Note**: If you receive an error like "could not find a 'psql' to execute", use the entire path to the executable in the command (`"C:\Program Files\pgAdmin 4\v5\runtime\psql"`)
+    
 
     - Navigate to pgAdmin. Refresh the database objects.  Verify the tables exist in pgAdmin.
   
@@ -425,7 +418,7 @@ Exercise 3 covered planning and assessment steps.  To start the database migrati
 
 In this Task, we will use the ora2pg utility to migrate table data to the PostgreSQL instance, now that we have created the table schema on the landing zone.
 
-1. Open Explorer and navigate to `C:\ora2pg\nw_migration\config`. Edit the **ora2pg.conf** file. Make sure the PG_DSN, PG_USER, and PG_PWD parameters have the correct values.
+1. Open Explorer and navigate to `C:\ora2pg\nw_migration\config`. Edit the **ora2pg.conf** file. Make sure the PG_DSN, PG_USER, and PG_PWD parameters have the correct values. Also remove the **#** from all of the 3 lines where you have updated the values. 
 
     ![The image shows the PG server parameters to connect to Azure PostgreSQL.](media/ora2pg-setup-psql-config.png "Update the PG config")
 
@@ -583,7 +576,7 @@ Our application utilizes a single stored procedure, so we must be able to migrat
 
     ![Screenshot showing old SP parameter list.](./media/proc-param-list.png "Old parameter list")
 
-    with this:
+    with this: **REFCURSOR**
 
     ![Screenshot showing new SP parameter list.](./media/proc-param-list-new.png "New parameter list")
 
@@ -742,6 +735,8 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
     }
     ```
 
+   >Note: If this PostgreSqlConnectionstring is not added then please add it manually below the oracle connection string.
+   
 ### Task 7: Update the Dashboard Stored Procedure Call
 
 With PostgreSQL, stored procedures cannot return output values without a cursor. This Task details how to write a function to replicate the same logic. Functions can return result sets directly, without a cursor.
@@ -800,7 +795,7 @@ With PostgreSQL, stored procedures cannot return output values without a cursor.
     public long OrderID { get; set; }
     ```
 
-7. Run the application again by selecting the green Start button in the Visual Studio toolbar.
+7. Run the application again by selecting the green IIS Express button in the Visual Studio toolbar.
 
     ![The Start button is highlighted on the Visual Studio toolbar.](./media/visual-studio-toolbar-start.png "Select Start")
 
@@ -852,18 +847,4 @@ As part of the PoC, the finished app will be hosted on Azure App Service. In thi
 
     >**Note**: Feel free to remove the connection string from the `appsettings.json` file, as it is securely provided to the application through Azure App Service. This is usually done to avoid committing connection strings into version control.
 
-## After the hands-on lab
-
-Duration: 10 minutes
-
-In this exercise, you will delete any Azure resources that were created in support of the lab. You should follow all steps provided after attending the Hands-on lab to ensure your account does not continue to be charged for lab resources.
-
-### Task 1: Delete the resource group
-
-1. Using the [Azure portal](https://portal.azure.com), navigate to the Resource group you used throughout this hands-on lab by selecting Resource groups in the left menu.
-
-2. Search for the name of your research group, and select it from the list.
-
-3. Select Delete in the command bar, and confirm the deletion by re-typing the Resource group name, and selecting Delete.
-
-You should follow all steps provided *after* attending the Hands-on lab.
+# Lab ends here. 
