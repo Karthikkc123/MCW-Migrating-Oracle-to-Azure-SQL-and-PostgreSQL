@@ -735,7 +735,7 @@ In this task, we will be recreating the ADO.NET data models to accurately repres
     }
     ```
 
-   >Note: If this PostgreSqlConnectionstring is not added then please add it manually below the oracle connection string.
+   >Note: If this PostgreSqlConnectionstring is not added then please remove the Oracledbconnectionstring and add postgress connection string manually.
    
 ### Task 7: Update the Dashboard Stored Procedure Call
 
