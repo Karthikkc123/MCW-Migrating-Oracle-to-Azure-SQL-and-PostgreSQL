@@ -130,7 +130,7 @@ In this exercise, you will load a sample database supporting the application. En
 
 1. On the Finish screen, select **Close**.
 
-1. Now to install SSMS, Navigate to ***"C:\LabFiles\"***  And open ssms.msi. Then Select **Next**.
+1. Now to install SSMA, Navigate to ***"C:\LabFiles\"***  And open ssma.msi. Then Select **Next**.
 
     ![View the Setup start screen.](./media/ssma-installer-welcome.png "SSMA installer start screen")
 
