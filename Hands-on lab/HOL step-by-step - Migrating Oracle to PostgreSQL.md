@@ -92,17 +92,17 @@ In this exercise, you will load a sample database supporting the application. En
 
 1. On the LabVM, navigate to the path **C:\LabFiles\OracleXE213_Win64**. Right-click `setup.exe`, and select **Run as administrator**.
 
-   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](./media/postgresql1.png "Run setup.exe as an administrator")
+   ![In File Explorer, setup.exe is selected, and Run as administrator is highlighted in the shortcut menu.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/master/Hands-on%20lab/media/postgresql1.png "Run setup.exe as an administrator")
    
 1. Select **Next** to step through each screen of the installer, accepting the license agreement and default values, until you get to the **Specify Database Passwords** screen.
 
 1.  On the **Oracle Database Information** screen, set the password to **Password.1!!**, and select **Next**.
 
-    ![The above credentials are entered on the Oracle Database Information screen.](./media/21c.png "Set the password")
+    ![The above credentials are entered on the Oracle Database Information screen.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/master/Hands-on%20lab/media/21c.png "Set the password")
 
 1.  Select **Install**. Once the installation completes, take note of the ports assigned.
 
-    ![Several of the ports being assigned are highlighted on the Summary screen.](./media/postgresql.png "Note the ports being assigned")
+    ![Several of the ports being assigned are highlighted on the Summary screen.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/master/Hands-on%20lab/media/postgresql.png "Note the ports being assigned")
 
 1. Select **Finish** on the final dialog to complete the installation.
 
