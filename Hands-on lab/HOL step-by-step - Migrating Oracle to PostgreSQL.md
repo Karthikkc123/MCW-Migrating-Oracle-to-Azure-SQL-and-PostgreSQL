@@ -887,7 +887,7 @@ As part of the PoC, the finished app will be hosted on Azure App Service. In thi
 
 7. In the **Publish** window, select your **Subscription name**. Expand the correct resource group and select the App Service resource. Select **Finish**.
 
-    ![Selecting the correct App Service instance in the Visual Studio Publish window.](./media/app-service-in-publish-window.png "App Service instance in the Publish window")
+    ![Selecting the correct App Service instance in the Visual Studio Publish window.](./media/ex4tsk8stp7.png "App Service instance in the Publish window")
 
 8. Select **Publish** next to the new publish profile.
 
