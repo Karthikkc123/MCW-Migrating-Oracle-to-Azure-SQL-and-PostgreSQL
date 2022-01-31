@@ -317,7 +317,7 @@ In this task, we will create the new application user and create the NW database
     - Do not select the checkbox next to the role name (this user will not be granting the azure_pg_admin role to others).
     - Select **Save**.
 
-    ![Setting the NW role as a member of the azure_pg_admin role.](./media/set-role-membership-5.4.png "azure_pg_admin role membership")
+    ![Setting the NW role as a member of the azure_pg_admin role.](./media/ex3tsk1stp9.png "azure_pg_admin role membership")
 
 
 Our configuration in pgAdmin is now complete.
@@ -885,19 +885,15 @@ As part of the PoC, the finished app will be hosted on Azure App Service. In thi
 
 6. Select **Azure App Service (Linux)**. Select **Next**.
 
-7. In the **Publish** window, select your **Subscription name**. Expand the correct resource group and select the App Service resource. Select **Next**.
+7. In the **Publish** window, select your **Subscription name**. Expand the correct resource group and select the App Service resource. Select **Finish**.
 
     ![Selecting the correct App Service instance in the Visual Studio Publish window.](./media/app-service-in-publish-window.png "App Service instance in the Publish window")
 
-8. Select **Publish (generates pubxml file)** for the **Deployment type** tab. Select **Finish**.
+8. Select **Publish** next to the new publish profile.
 
-    ![Generating a publish profile for the Visual Studio App Service deployment.](./media/pubxml-deployment-type.png "Generating a publish profile")
+9. First, your application will build. Then, all relevant files will be copied into a ZIP archive for deployment.
 
-9. Select **Publish** next to the new publish profile.
-
-10. First, your application will build. Then, all relevant files will be copied into a ZIP archive for deployment.
-
-11. Once the build completes, navigate to your app's link. Test the web application.
+10. Once the build completes, navigate to your app's link. Test the web application.
 
     ![Screenshot showing The Northwind app deployed to Azure App Service.](./media/final-northwindapp.png "App deployed to Azure")
 
