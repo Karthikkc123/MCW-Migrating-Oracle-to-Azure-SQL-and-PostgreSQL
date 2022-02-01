@@ -74,13 +74,6 @@ Below is a diagram of the solution architecture you build in this lab. Please st
 
 The solution begins by installing and using ora2pg to assess the task of migrating the Oracle XE database supporting the application to Azure Database for PostgreSQL. Then, the tool will be used to migrate the table schema without indexes or constraints to the target. ora2pg will migrate the data to the landing zone. Lastly, remaining objects, including stored procedures and views, will be modified and exported to PostgreSQL through ora2pg. At this point, we will need to modify the MVC application. The first step is to create new entity models. Then, we will scaffold controllers and views from the new models. Lastly, we will use Visual Studio 2019 to deploy the modified app to Azure App Service.
 
-## Requirements
-
-- Microsoft Azure subscription must be pay-as-you-go or MSDN.
-  - Trial subscriptions will not work.
-- A virtual machine configured with Visual Studio 2019 Community edition.
-
-    >**Note**: If you find that your Visual Studio 2019 VM image comes with Visual Studio 2017, and not 2019, you will need to manually install 2019 Community from [here](https://visualstudio.microsoft.com/downloads/). Ensure that the **ASP.NET and web development** and **Azure development** Workloads are enabled for your installation.
 
 ## Exercise 1: Setup Oracle 18c Express Edition
 
