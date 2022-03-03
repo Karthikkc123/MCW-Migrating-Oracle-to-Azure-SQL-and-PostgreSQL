@@ -298,7 +298,7 @@ In this task, we will create the new application user and create the NW database
     - For **Password**, enter the admin user password you provided during deployment.
     - Select **Save** when you are ready to connect.
 
-    ![Specifying the database connection.](./media/specifying-db-connection.png "DB connection specifications")
+    ![Specifying the database connection.](./media/create-server-pgadmin.png "DB connection specifications")
 
 5. If the connection is successful, it should appear under the **Servers** browser dropdown.
 
@@ -314,7 +314,7 @@ In this task, we will create the new application user and create the NW database
 
 8. Under **Privileges**, change the **Can log in?** slider to the **Yes** position.
 
-    ![Screenshot showing how to define privileges.](./media/nw-defined-privileges.png "Defining Privileges window")
+    ![Screenshot showing how to define privileges.](./media/create-login-group-role.png "Defining Privileges window")
 
 9.  Finally, navigate to **Membership**.
 
@@ -322,7 +322,7 @@ In this task, we will create the new application user and create the NW database
     - Do not select the checkbox next to the role name (this user will not be granting the azure_pg_admin role to others).
     - Select **Save**.
 
-    ![Setting the NW role as a member of the azure_pg_admin role.](./media/set-role-membership-5.4.png "azure_pg_admin role membership")
+    ![Setting the NW role as a member of the azure_pg_admin role.](./media/azure-pgadmin-group-role.png "azure_pg_admin role membership")
 
 10. If you did not deploy the lab ARM template, you need to create a new database. Simply right-click the **Databases** dropdown and select **Create > Database...**. Provide `NW` as the database name and the set the owner to the admin user configured in the Azure provisioning step.
 
@@ -618,6 +618,8 @@ Our application utilizes a single stored procedure, so we must be able to migrat
     A second detail to keep in mind is NULLs vs. empty strings. In PostgreSQL, they are handled differently. This is a small distinction in Oracle that can be overlooked, leading to incomplete query results.
 
 4. We will need to edit the procedure's parameter list, and we can do this by using a refcursor. Replace the existing last parameter of the procedure, `cur_OUT INOUT PKGENTLIB_ARCHITECTURE.CURENTLIB_ARCHITECTURE`, with `cur_OUT INOUT REFCURSOR`.
+
+    ![Screenshot showing how to migrate parameter procedure using ora2pg.](./media/salesbyyear-refcursor.png "Exporting with ora2pg")
 
 5. A useful PostgreSQL extension that facilitates greater compatibility with Oracle database objects is **orafce**, which is provided with Azure Database for PostgreSQL. To enable it, navigate to pgAdmin, enter your master password, and connect to your PostgreSQL instance. Then, enter the following command into the query editor and execute it:
 
