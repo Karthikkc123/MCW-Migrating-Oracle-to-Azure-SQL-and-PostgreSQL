@@ -298,7 +298,7 @@ In this task, we will create the new application user and create the NW database
     - For **Password**, enter the admin user password you provided during deployment.
     - Select **Save** when you are ready to connect.
 
-    ![Specifying the database connection.](./media/create-server-pgadmin.png "DB connection specifications")
+    ![Specifying the database connection.](./media/create-server-pgadmin-new.png "DB connection specifications")
 
 5. If the connection is successful, it should appear under the **Servers** browser dropdown.
 
@@ -314,7 +314,7 @@ In this task, we will create the new application user and create the NW database
 
 8. Under **Privileges**, change the **Can log in?** slider to the **Yes** position.
 
-    ![Screenshot showing how to define privileges.](./media/create-login-group-role.png "Defining Privileges window")
+    ![Screenshot showing how to define privileges.](./media/create-login-group-role-new.png "Defining Privileges window")
 
 9.  Finally, navigate to **Membership**.
 
