@@ -1187,7 +1187,7 @@ In this exercise, you will demonstrate value from the upgrade by enabling the Ta
 3. Copy the script below, and paste it into the query window:
 
    ```sql
-   USE [WideWorldImportersDW]
+   USE [WideWorldImporters]
 
    -- Get the Size of the FactInternetSales table
    SELECT
@@ -1258,7 +1258,7 @@ In this task, you will create a new table based on the existing `FactResellerSal
 3. Copy the script below, and paste it into the query window:
 
    ```sql
-   USE WideWorldImportersDW
+   USE WideWorldImporters
 
    SELECT *
    INTO ColumnStore_FactResellerSales
@@ -1273,7 +1273,7 @@ In this task, you will create a new table based on the existing `FactResellerSal
 5. Select **New Query** in the toolbar again, and paste the following query into the new query window. The query contains multiple parts; one to get the size of the `ColumnStore_FactResellerSales` table, the second to create a clustered ColumnStore index on the ColumnStore_FactResellerSales table, and then the size query is repeated to get the size after adding the clustered ColumnStore index.
 
    ```sql
-   USE [WideWorldImportersDW]
+   USE [WideWorldImporters]
 
    -- Get the Size of the ColumnStore_FactResellerSales table
    SELECT
