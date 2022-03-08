@@ -325,9 +325,9 @@ In this exercise, you will migrate the Oracle database to Azure SQL DB using SSM
 
 6. Select **Connect**.
 
-7. In the Filter objects dialog, uncheck **Load all user objects**. Then, select the **NW** schema. Note that the **Sys** and **System** schemas are automatically checked. 
+7. In the Filter objects dialog, uncheck **Load all user objects**. Then, select the **NW** and **System** schemas. Note that the **Sys** schema is automatically checked. 
 
-   ![The NW schema is highlighted and checked in the Filter objects dialog. The System schema is checked, and all others are unchecked.](media/ssms-filter-objects.png "SSMA Filter objects")
+   ![The NW schema is highlighted and checked in the Filter objects dialog. The System schema is checked, and all others are unchecked.](media/filter-objects-nw.png "SSMA Filter objects")
 
    >**Note**: In production Oracle environments, you must ensure that you have sufficient permissions to run SSMA. See Microsoft's complete list [here.](https://docs.microsoft.com/sql/ssma/oracle/connecting-to-oracle-database-oracletosql)
 
@@ -779,11 +779,11 @@ In this task, you will create an RDP connection to the SqlServer2008 VM.
 
 1. In the [Azure portal](https://portal.azure.com), select **Resource groups** in the Azure services list, enter your resource group name (hands-on-lab-SUFFIX) into the filter box, and select it from the list.
 
-   ![Resource groups is selected in the Azure navigation pane, hands is entered into the filter box, and the hands-on-lab-SUFFIX resource group is highlighted.](./media/resource-groups.png "Resource groups list")
+   ![Resource groups is selected in the Azure navigation pane, hands is entered into the filter box, and the hands-on-lab-SUFFIX resource group is highlighted.](./media/resource-groups-labvm-select.png "Resource groups list")
 
 2. In the list of resources for your resource group, select the SqlServer2008 VM.
 
-   ![The list of resources in the hands-on-lab-SUFFIX resource group is displayed, and SqlServer2008 is highlighted.](media/resource-group-resources-sqlserver2008r2.png "SqlServer2008 VM in resource group list")
+   ![The list of resources in the hands-on-lab-SUFFIX resource group is displayed, and SqlServer2008 is highlighted.](media/sqlserver-vm-select.png "SqlServer2008 VM in resource group list")
 
 3. On the SqlServer2008 blade, select Connect from the top menu.
 
